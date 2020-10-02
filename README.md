@@ -30,7 +30,22 @@ You will need:
 ## Usage
 Your first step must be to start up the Virtual Machine.
 After starting the VM, the rest of this tutorial happens completely inside the VM.
-### Clone the Repository
+#### Clone the Repository
 Clone this Repositoy to a place of your choice inside the VM via:
 
-'git clone https://github.com/ThorKn/vexriscv-ulx3s-simple-plugin.git'
+`git clone https://github.com/ThorKn/vexriscv-ulx3s-simple-plugin.git`
+
+#### Structure of the repository
+The repository contains three main folders:
+```
+|-- vexriscv
+|-- ulx3s
+|-- c_project
+```
+`vexriscv` contains the spinalHDL code for generating the Vexriscv CPU as a single Verilog file, named `Murax.v`. The custom instruction (a Vexriscv plugin inside the pipeline) is also already contained in `Murax.v`.
+
+`ulx3s` contains the `makefile` and the constraint file `ulx3s_v20_constraints.lpf` for building the bitstream out of the Verilog. The bitstream will be named `Murax.bit` and can directly be uploaded to the ULX3S Board.
+
+`c_project` contains the whole C project to build the example ELF file `simple_plugin.elf` to interact with the custom instruction inside the Vexriscv. This ELF file can be uploaded to the Vexriscv (on the ULX3S Board) via Openocd and Riscv-GDB.
+
+#### Build and upload it all

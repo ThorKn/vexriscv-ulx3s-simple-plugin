@@ -32,7 +32,7 @@ That all is include in this Repository.
 ### Wiring:
 Wire the ULX3S FPGA Board and the TF232H together with 5 jumper cables:
 ![ULX3S wiring](/images/ulx3s.jpg)
-![TF232H wiring](/images/ft232h.jpg)
+![FT232H wiring](/images/ft232h.jpg)
 
 
 ## Usage

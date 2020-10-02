@@ -17,15 +17,17 @@ That all is include in this Repository.
 You will need:
 1. The neccessary tools are contained in this Virtual Machine (VM):
 
-  [Virtual Machine](https://random-oracles.org/risc-v/)
+    [Virtual Machine](https://random-oracles.org/risc-v/)
 
-  Download the VM and follow the documentation for starting it up.
+    Download the VM and follow the documentation for starting it up.
+
 2. An ULX3S FPGA Board (85k Version):
 
-  [Radiona ULX3S](https://radiona.org/ulx3s/)
+    [Radiona ULX3S](https://radiona.org/ulx3s/)
+
 3. A JTAG Adapter (TF232H) from Adafruit:
 
-  [Adafruit TF2323H](https://www.adafruit.com/product/2264)
+    [Adafruit TF2323H](https://www.adafruit.com/product/2264)
 
 ## Usage
 Your first step must be to start up the Virtual Machine.

@@ -69,6 +69,7 @@ sbt "runMain vexriscv.demo.Murax"
 Then copy the Verilog file `Murax.v` to the directory `ulx3s` and leave the directory:
 ```
 cp Murax.v ../ulx3s/
+cp cpu0.yaml ../c_project/
 cd ..
 ```
 
@@ -98,9 +99,9 @@ make
 ```
 The ELF-file `simple_plugin.elf` got generated inside the `build` directory.
 
-The next step is to connect the TF232H adapter to the Vexriscv via `openocd-vexriscv`:
+The next step is to connect the TF232H adapter to the Vexriscv via `openocd-vexriscv` (sudo needed):
 ```
-openocd-vexriscv -f tf2323h_openocd.cfg
+sudo openocd-vexriscv -f ft2323h_openocd.cfg
 ```
 This should give you the console output of connecting openocd to the vexriscv. After connecting openocd should listen for a GDB connection on port 3333 (search for this in the console output).
 
@@ -110,7 +111,7 @@ cd c_project/build
 ```
 Now you can upload the ELF-file `simple_plugin.elf` to the vexriscv by using the Riscv-GDB:
 ```
-riscv64-unknown-elf-gdb -tui -ex 'set remotetimeout 10' -ex 'target remote :3333' -ex load -ex 'break main' -ex 'break 43' simple_plugin.elf
+riscv64-unknown-elf-gdb -tui -ex 'set remotetimeout 10' -ex 'target remote :3333' -ex load -ex 'break main.c:43' simple_plugin.elf
 ```
 
 Now the Vexriscv is running on the FPGA and the compiled c-code is loaded into the Vexriscv CPU. To see the results of the execution of the custom instruction, you must open up a serial connection to the Vexriscv. Therefore we'll use `GTKTerm`. Again you need to **open up a new console window** for that (as the last one is idle again). Then start `GTKTerm`:

@@ -13,6 +13,8 @@ vexriscv/target/
 **/ulx3s/*.json
 **/ulx3s/*.v
 
+# C_Project
+c_project/build
 
 
 

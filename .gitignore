@@ -1,7 +1,18 @@
+# Global
+*.log
+
+# Vexriscv
 vexriscv/project/
 vexriscv/target/
 **/vexriscv/cpu0.yaml
 **/vexriscv/Murax.v
-*.log
+
+# ULX3S
+**/ulx3s/*.bit
+**/ulx3s/*.config
+**/ulx3s/*.json
+**/ulx3s/*.v
+
+
 
 

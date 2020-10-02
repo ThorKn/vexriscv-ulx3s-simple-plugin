@@ -1,7 +1,7 @@
 vexriscv/project/
 vexriscv/target/
-vexriscv/cpu0.yaml
-vexriscv/Murax.v
-log
+**/vexriscv/cpu0.yaml
+**/vexriscv/Murax.v
+*.log
 
 

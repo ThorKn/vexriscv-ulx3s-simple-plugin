@@ -114,7 +114,7 @@ Now you can upload the ELF-file `simple_plugin.elf` to the vexriscv by using the
 riscv64-unknown-elf-gdb -tui -ex 'set remotetimeout 10' -ex 'target remote :3333' -ex load -ex 'break main.c:43' simple_plugin.elf
 ```
 
-Now the Vexriscv is running on the FPGA and the compiled c-code is loaded into the Vexriscv CPU. To see the results of the execution of the custom instruction, you must open up a serial connection to the Vexriscv. Therefore we'll use `GTKTerm`. Again you need to **open up a new console window** for that (as the last one is idle again). Then start `GTKTerm`:
+Now the Vexriscv is running on the FPGA and the compiled c-code is loaded into the Vexriscv CPU. To see the results of the execution of the custom instruction, you must open up a serial connection to the Vexriscv. Therefore we'll use `GTKTerm`. Again you need to **open up a new console window** for that (as the last one is idle again). Then start `GTKTerm` (sudo needed):
 ```
 sudo gtkterm
 ```

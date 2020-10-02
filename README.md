@@ -14,7 +14,7 @@ You got yourself a ULX3S FPGA Board and want to try out
 That all is include in this Repository.
 
 ## Prerequisites
-You will need:
+### You will need:
 1. The neccessary tools are contained in this Virtual Machine (VM):
 
     [Virtual Machine](https://random-oracles.org/risc-v/)
@@ -28,6 +28,12 @@ You will need:
 3. A JTAG Adapter (TF232H) from Adafruit:
 
     [Adafruit TF2323H](https://www.adafruit.com/product/2264)
+
+### Wiring:
+Wire the ULX3S FPGA Board and the TF232H together with 5 jumper cables:
+![ULX3S wiring](/images/ulx3s.jpg)
+![TF232H wiring](/images/ft232h.jpg)
+
 
 ## Usage
 Your first step must be to start up the Virtual Machine.
@@ -43,12 +49,15 @@ The repository contains three main folders:
 |-- vexriscv
 |-- ulx3s
 |-- c_project
+|-- images
 ```
 `vexriscv` contains the spinalHDL code for generating the Vexriscv CPU as a single Verilog file, named `Murax.v`. The custom instruction (a Vexriscv plugin inside the pipeline) is also already contained in `Murax.v`.
 
 `ulx3s` contains the `makefile` and the constraint file `ulx3s_v20_constraints.lpf` for building the bitstream out of the Verilog. The bitstream will be named `Murax.bit` and can directly be uploaded to the ULX3S Board.
 
 `c_project` contains the whole C project to build the example ELF file `simple_plugin.elf` to interact with the custom instruction inside the Vexriscv. This ELF file can be uploaded to the Vexriscv (on the ULX3S Board) via Openocd and Riscv-GDB.
+
+`images` contains the pictures for the readme.
 
 ### Build and upload it all
 #### Build the Murax.v from spinalHDL with SBT

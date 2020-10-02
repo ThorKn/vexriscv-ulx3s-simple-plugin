@@ -33,7 +33,7 @@ That all is include in this Repository.
 Wire the ULX3S FPGA Board and the TF232H together with 5 jumper cables:
 ![ULX3S wiring](/images/ulx3s.jpg)
 ![FT232H wiring](/images/ft232h.jpg)
-
+![Schematic](/images/wiring.pdf)
 
 ## Usage
 Your first step must be to start up the Virtual Machine.

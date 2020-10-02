@@ -88,3 +88,38 @@ After programming the FPGA, leave the directory:
 ```
 cd ..
 ```
+
+#### Build the ELF file from the C-Project and upload it to the Vexriscv:
+
+Get into the `c_project` directory and build the ELF-file:
+```
+cd c_project
+make
+```
+The ELF-file `simple_plugin.elf` got generated inside the `build` directory.
+
+The next step is to connect the TF232H adapter to the Vexriscv via `openocd-vexriscv`:
+```
+openocd-vexriscv -f tf2323h_openocd.cfg
+```
+This should give you the console output of connecting openocd to the vexriscv. After connecting openocd should listen for a GDB connection on port 3333 (search for this in the console output).
+
+After connecting openocd you must **open up a new console window** (the last one is idle now) and navigate to the `build` folder:
+```
+cd c_project/build
+```
+Now you can upload the ELF-file `simple_plugin.elf` to the vexriscv by using the Riscv-GDB:
+```
+riscv64-unknown-elf-gdb -tui -ex 'set remotetimeout 10' -ex 'target remote :3333' -ex load -ex 'break main' -ex 'break 43' simple_plugin.elf
+```
+
+Now the Vexriscv is running on the FPGA and the compiled c-code is loaded into the Vexriscv CPU. To see the results of the execution of the custom instruction, you must open up a serial connection to the Vexriscv. Therefore we'll use `GTKTerm`:
+```
+sudo gtkterm
+```
+
+Configure `GTKTerm` for the fitting `ttyUSBX` Interface (mostly `ttyUSB0` or `ttyUSB1`) and set the protocol to `115200 - 8 - N - 1`. Additional you want to see the output as `ASCII`.
+
+When you step through the c-program with using the GDB (`c` is for `continue`), you can see the printouts of the Vexriscv in `GTKTerm`.
+
+That is it.

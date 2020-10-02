@@ -30,12 +30,12 @@ You will need:
 ## Usage
 Your first step must be to start up the Virtual Machine.
 After starting the VM, the rest of this tutorial happens completely inside the VM.
-#### Clone the Repository
+### Clone the Repository
 Clone this Repositoy to a place of your choice inside the VM via:
 
 `git clone https://github.com/ThorKn/vexriscv-ulx3s-simple-plugin.git`
 
-#### Structure of the repository
+### Structure of the repository
 The repository contains three main folders:
 ```
 |-- vexriscv
@@ -48,4 +48,32 @@ The repository contains three main folders:
 
 `c_project` contains the whole C project to build the example ELF file `simple_plugin.elf` to interact with the custom instruction inside the Vexriscv. This ELF file can be uploaded to the Vexriscv (on the ULX3S Board) via Openocd and Riscv-GDB.
 
-#### Build and upload it all
+### Build and upload it all
+#### Build the Murax.v from spinalHDL with SBT
+We'll start with the Vexriscv in spinalHDL and generate the Verilog from it:
+```
+cd vexriscv
+sbt "runMain vexriscv.demo.Murax"
+```
+Then copy the Verilog file `Murax.v` to the directory `ulx3s` and leave the directory:
+```
+cp Murax.v ../ulx3s/
+cd ..
+```
+
+#### Build the bitstream for the ULX3S and upload it:
+Get into the `ulx3s` directory and build the bitstream:
+```
+cd ulx3s
+make Murax.bit
+```
+The bitstream got generated as the file `Murax.bit`. This bitstream file can now be uploaded to the ULX3S FPGA board via:
+```
+ujprog Murax.bit
+```
+It might be, that you have to execute `ujprog` as `sudo`.
+
+After programming the FPGA, leave the directory:
+```
+cd ..
+```

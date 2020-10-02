@@ -8,7 +8,7 @@ You got yourself a ULX3S FPGA Board and want to try out
 3. generate the bitstream for the ULX3S.
 4. upload the bitstream to the ULX3S.
 5. build a C-Project to test the custom instruction.
-6. upload the ELF-file via an Openocd-Debugger and GDB.
+6. upload the ELF-file via a JTAG-Adapter, using GDB.
 7. seeing the UART output in a console.
 
 That all is include in this Repository.
@@ -16,14 +16,21 @@ That all is include in this Repository.
 ## Prerequisites
 You will need:
 1. The neccessary tools are contained in this Virtual Machine (VM):
-[Virtual Machine](https://random-oracles.org/risc-v/)
-Download the VM and follow the documentation for starting it up.
+
+  [Virtual Machine](https://random-oracles.org/risc-v/)
+
+  Download the VM and follow the documentation for starting it up.
 2. An ULX3S FPGA Board (85k Version):
-[Radiona ULX3S](https://radiona.org/ulx3s/)
+
+  [Radiona ULX3S](https://radiona.org/ulx3s/)
 3. A JTAG Adapter (TF232H) from Adafruit:
-[Adafruit TF2323H](https://www.adafruit.com/product/2264)
+
+  [Adafruit TF2323H](https://www.adafruit.com/product/2264)
 
 ## Usage
-bla bla
+Your first step must be to start up the Virtual Machine.
+After starting the VM, the rest of this tutorial happens completely inside the VM.
+### Clone the Repository
+Clone this Repositoy to a place of your choice inside the VM via:
 
-
+'git clone https://github.com/ThorKn/vexriscv-ulx3s-simple-plugin.git'
